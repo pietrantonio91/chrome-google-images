@@ -20,6 +20,10 @@ function generateButtons() {
     setTimeout(function () {
         var mainDiv = document.querySelector("#Sva75c");
 
+        if (mainDiv === null) {
+            return;
+        }
+
         var children = mainDiv.querySelectorAll(".fwCBrd");
         var images = mainDiv.querySelectorAll(".n3VNCb");
 
