@@ -130,7 +130,7 @@ function forceDownload(blob, filename) {
 
 function downloadResource(url, filename) {
     if (!checkBase64(url)) {
-        url = "https://cors-anywhere.herokuapp.com/" + url;
+        url = "https://api.allorigins.win/raw?url=" + url;
         if (!filename) filename = url.split("\\").pop().split("/").pop();
         fetch(url, {
             headers: new Headers({
@@ -138,14 +138,14 @@ function downloadResource(url, filename) {
             }),
             mode: "cors",
         })
-            .then((response) => response.blob())
-            .then((blob) => {
-                let blobUrl = window.URL.createObjectURL(blob);
-                forceDownload(blobUrl, filename);
-            })
-            .catch((e) => {
+        .then((response) => response.blob())
+        .then((blob) => {
+            let blobUrl = window.URL.createObjectURL(blob);
+            forceDownload(blobUrl, filename);
+        })
+        .catch((e) => {
 
-            });
+        });
     } else {
         var image_data = atob(url.split(",")[1]);
         var arraybuffer = new ArrayBuffer(image_data.length);

@@ -417,5 +417,5 @@
         "*://*.google.co.zw/*",
         "*://*.google.cat/*"
     ],
-    "version": "0.2"
+    "version": "0.3"
 }
